@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Grid from '../../components/Grid/Grid';
 import Button from '../../components/Button/Button';
 import useTasks from './useTasks';
@@ -7,10 +7,9 @@ import TextComponent from '../../components/TextComponent/TextComponent';
 import { Box, BoxHeader, CloseButton } from '../../components/Grid/styles';
 import useGlobalTasks from '../../../hooks/useGlobalTasks';
 import { RiCloseCircleLine } from 'react-icons/ri';
-import styled from 'styled-components';
 
 const Tasks = () => {
-	const [_, taskToShow] = useGlobalTasks();
+	const { taskToShow } = useGlobalTasks();
 
 	const [visible, edit, handleEditAndOpenModal, handleCloseAndCleanState, handleOpenModal, task, handleXClick] =
 		useTasks();

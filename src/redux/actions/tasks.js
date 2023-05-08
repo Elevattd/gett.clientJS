@@ -1,4 +1,4 @@
-import { AxiosInstance } from '../../app/services/AxiosInstance';
+// import { AxiosInstance } from '../../app/services/AxiosInstance';
 import { GET_TASKS, SET_TASK_TO_SHOW, DELETE_TASK, UPDATE_TASK, SET_TASK_PER_PAGE, SET_CURRENT_PAGE } from '../consts';
 import tasjMockup from '../../mockup.json';
 import { NotificationManager } from 'react-notifications';

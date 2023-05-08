@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateTask } from '../../../redux/actions/tasks';
 
@@ -12,6 +12,7 @@ const useTaskDetail = ({ task, visible, onClose }) => {
 		} else {
 			setTaskToEdit({});
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [visible]);
 
 	const handleTaskEditChange = (e) => {

@@ -7,7 +7,7 @@ import { setCurrentPage, setTaskPerPage, setTasksToShow } from '../../../redux/a
 const usePagination = () => {
 	const { tasksPerPage, currentPage } = useSelector((state) => state.pagination);
 	const dispatch = useDispatch();
-	const [tasks, tasksToShow] = useGlobalTasks();
+	const { tasks, taskToShow } = useGlobalTasks();
 	const [totalPages, setTotalPages] = useState(Math.ceil(tasks?.length / tasksPerPage));
 	const [pageButtons, setPageButtons] = useState([]);
 	const [minButton, setMinButton] = useState(1);
@@ -89,7 +89,7 @@ const usePagination = () => {
 		pageButtons,
 		totalPages,
 		currentPage,
-		tasksToShow,
+		taskToShow,
 		handleTasksPerPageChange,
 	};
 };
