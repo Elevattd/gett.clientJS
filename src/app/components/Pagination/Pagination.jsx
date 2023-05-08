@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import usePagination from './usePagination';
 import { StyledPaginationButton, StyledPaginationSelect, SyledPagination } from './styles';
 import { useSelector } from 'react-redux';

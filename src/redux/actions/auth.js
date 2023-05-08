@@ -34,12 +34,12 @@ export const deleteCredentials = () => {
 			dispatch({
 				type: DELETE_CREDENTIALS,
 			});
+			NotificationManager.success(MESSAGE_NOTIFICATION.LOGOUT_OK, MESSAGE_TITLES.SESSION_OUT, 3000);
+
 			localStorage.removeItem('user');
 		};
 	} catch (error) {
 		NotificationManager.error(MESSAGE_NOTIFICATION.SERVER_ERROR, MESSAGE_TITLES.SESSION, 3000);
 		return error;
-	} finally {
-		NotificationManager.success(MESSAGE_NOTIFICATION.LOGOUT_OK, MESSAGE_TITLES.SESSION_OUT, 3000);
 	}
 };

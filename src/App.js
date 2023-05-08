@@ -22,10 +22,12 @@ function App() {
 		if (user) {
 			dispatch(setCrendentials(user, 'cookies'));
 		}
+		// eslint-disable-next-line
 	}, []);
 
 	useEffect(() => {
 		dispatch(getAllTasks);
+		// eslint-disable-next-line
 	}, [autenticate]);
 
 	return (

@@ -23,6 +23,7 @@ const usePagination = () => {
 	useEffect(() => {
 		const total = Math.ceil(tasks?.length / tasksPerPage);
 		setTotalPages(total);
+		// eslint-disable-next-line
 	}, [tasksPerPage]);
 
 	useEffect(() => {
@@ -30,6 +31,7 @@ const usePagination = () => {
 			setCurrentPage(totalPages);
 			dispatch(setCurrentPage(totalPages));
 		}
+		// eslint-disable-next-line
 	}, [currentPage, totalPages]);
 
 	useEffect(() => {
@@ -57,6 +59,7 @@ const usePagination = () => {
 		setPageButtons(newPageButtons);
 		setMinButton(start);
 		setMaxButton(end);
+		// eslint-disable-next-line
 	}, [currentPage, tasksPerPage]);
 
 	const handlePageChange = (newPage) => {

@@ -4,10 +4,6 @@ import styled from 'styled-components';
 
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
-const IconContainer = styled.div`
-	display: flex;
-`;
-
 const IconLink = styled.a`
 	margin-left: 10px;
 	color: #808080;
