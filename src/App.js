@@ -1,25 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import 'react-notifications/lib/notifications.css';
+import Home from './app/views/Home/Home';
+import Login from './app/views/Login/Login';
+import Layout from './app/views/Layout/Layout';
+import useAuth from './hooks/useAuth';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getAllTasks } from './redux/actions/tasks';
+import { setCrendentials } from './redux/actions/auth';
+import { NotificationContainer } from 'react-notifications';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Footer from './app/components/Footer/Footer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const dispatch = useDispatch();
+	const [autenticate] = useAuth();
+
+	useEffect(() => {
+		const userJson = localStorage.getItem('user');
+		const user = userJson ? JSON.parse(userJson) : null;
+		if (user) {
+			dispatch(setCrendentials(user, 'cookies'));
+		}
+	}, []);
+
+	useEffect(() => {
+		dispatch(getAllTasks);
+	}, [autenticate]);
+
+	return (
+		<>
+			<BrowserRouter>
+				<Routes>
+					<Route path='/' element={<Layout />}>
+						<Route path='/' element={autenticate ? <Home /> : <Login />} />
+					</Route>
+				</Routes>
+			</BrowserRouter>
+			<NotificationContainer />
+			<footer>
+				<Footer />
+			</footer>
+		</>
+	);
 }
 
 export default App;
