@@ -18,6 +18,7 @@ const usePagination = () => {
 		const endIndex = startIndex + tasksPerPage;
 		const tasksSlice = tasks?.slice(startIndex, endIndex);
 		dispatch(setTasksToShow(tasksSlice));
+		// eslint-disable-next-line
 	}, [tasks, currentPage, tasksPerPage]);
 
 	useEffect(() => {
